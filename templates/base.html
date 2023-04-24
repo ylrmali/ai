@@ -1,0 +1,52 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- style link here! -->
+    <link rel="stylesheet" href="{% static 'project/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'project/css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'project/css/sidebar.css' %}">
+
+
+    {% block style %}
+
+    {% endblock %}
+    <title>NRBT-FLOW</title>
+</head>
+<body>
+
+    <!-- include navbar -->
+    {% include 'partials/_navbar.html' %}
+
+    <!-- content codes here! -->
+    {% block content %}
+
+    {% endblock %}
+
+
+
+    <!-- scripts files here! -->
+    {% block scripts %}
+
+    {% endblock %}
+
+    <!-- fontawesome cdn -->
+    <script src="https://kit.fontawesome.com/5bec9f942b.js" crossorigin="anonymous"></script>
+
+    <!-- htmx -->
+    <script src="https://unpkg.com/htmx.org@1.8.6"
+            integrity="sha384-Bj8qm/6B+71E6FQSySofJOUjA/gq330vEqjFx9LakWybUySyI1IQHwPtbTU7bNwx"
+            crossorigin="anonymous">
+    </script>
+     <script>
+            document.body.addEventListener('htmx:configRequest', (event) => {
+            event.detail.headers['X-CSRFToken'] = '{{ csrf_token }}';
+            })
+    </script>
+</body>
+</html>

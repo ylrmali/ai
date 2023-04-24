@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+/* font-family: 'Noto Sans', sans-serif; */
+
+body{
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+/* main bar */
+.message{
+    text-transform: capitalize;
+    font-size: 40px;
+    color: #4d4c4c;
+    margin: 0 auto;
+}
+
+.no-data{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    max-height: 400px;
+    max-width: 400px;
+}
+
+.create-project{
+    margin: 5%
+}
+
+.create-project button{
+    text-decoration: none;
+    color: dodgerblue;
+    border: 2px solid dodgerblue;
+    border-radius: 10px;
+    padding: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.side-padding{
+    padding: 0 5%;
+}
+
+.wrap{
+    flex-wrap: wrap;
+}
+
+.card{
+    background-color: whitesmoke;
+    border-radius: 10px;
+    padding: 0 20px ;
+    border: 1px solid #bdbdbd;
+}
+
+.card a{
+    text-decoration: none;
+
+}
+
+.project-image{
+    width: 100%;
+    max-height: 64px;
+    max-width: 64px;
+}
+
+.gap-05{
+    gap: 10px;
+}
+
+.project-name{
+    color: #03171F;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.fa-globe{
+    margin-top: 16px;
+    margin-bottom: 0;
+}
+
+.project-model{
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 12px;
+    color: grey;
+}
+
+.project-date{
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 12px;
+    color: grey;
+}
+
+/*  create project */
+.backdrop{
+    display: none;
+    width: 100%;
+    height: 110vh;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.active{
+    display: flex;
+}
+
+.modal{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #bdbdbd;
+    border-radius: 5px;
+    width: 50%;
+    height: fit-content;
+}
+
+.modal-content{
+    width: 100%;
+}
+
+.modal-header{
+    font-weight: bold;
+    justify-content: space-between;
+}
+
+
+#project_name{
+    margin-top: 10px;
+    width: 90%;
+    height: 15px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    color: #4d4c4c;
+    padding: 10px;
+}
+
+#project_name:hover{
+    background-color: rgba(128, 128, 128, 0.2);
+}
+
+#project_name:focus{
+    outline: 0;
+}
+
+#project_model{
+    width: 94%;
+    height: 36.5px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    color: #4d4c4c;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+#project_model:hover{
+    background-color: rgba(128, 128, 128, 0.2);
+}
+
+#project_model:focus{
+    outline: 0;
+}
+
+.createBtn{
+    border: 1px solid dodgerblue;
+    background-color: rgba(30, 144, 255, 0.2);
+    text-decoration: none;
+    padding: 7px 20px;
+    border-radius: 5px;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.padding-side20{
+    padding: 0 20px;
+}
+
+.border-bottom{
+    border-bottom: 2px solid dodgerblue;
+    width: 100%;
+    height: 1px;
+}
+
+/* UPLOAD IMAGE  */
+#project_image_label{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 15px;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    cursor:pointer;
+    border: 1px dashed black;
+    border-radius: 10px;
+    position: relative;
+    padding: 30px;
+    margin: 20px 0;
+    background-color: white;
+    color: #4d4c4c;
+}
+
+#project_image_label:hover .upload-image{
+    transform: rotateY(360deg);
+    transition: 1s ease-in-out;
+}

@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'project/css/project-detail.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <!-- include sidebar -->
+            {% include 'project/partials/_sidebar.html' %}
+
+            <!-- project details -->
+            <div class="container" style="width: 100%">
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="card ms-5">
+
+                            <div class="project-header d-flex gap-3 align-items-center">
+                                <img class="project-image" src="{{ project.project_image.url }}" alt="">
+                                <div class="info">
+                                    <p class="project-name">{{ project.project_name }}</p>
+                                    <div class="row gap-05 align-items-center">
+                                        <i class="fa-regular fa-user"></i>
+                                        <p class="project-user">{{ user.username }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- project body -->
+                            <div class="project-body padding-025">
+                                <form action="" method="POST">
+                                    {% csrf_token %}
+                                    <label for="name_input">Project Name:</label>
+                                    <input type="text" id="name_input" name="name_input"
+                                           class="form-control" value="{{ project.project_name }}">
+
+                                    <label for="model_choice">Project Model:</label>
+                                    <select name="model_choice" id="model_choice" aria-selected="{{ project.project_model }}">
+                                        <option value="YOLO-V8">YOLO-V8</option>
+                                        <option value="YOLO-V7">YOLO-V7</option>
+                                        <option value="YOLO-V6">YOLO-V6</option>
+                                        <option value="YOLO-V5">YOLO-V5</option>
+                                    </select>
+
+                                    <label for="image-input">Project Image:</label>
+                                    <input type="file" id="image-input" name="image-input" class="form-control">
+                                    <div class="row w-93 jc-between">
+                                        <!-- save changes -->
+                                        <button type="submit" class="saveBtn">
+                                            Save Changes
+                                            <i class="fa-solid fa-check"></i>
+                                        </button>
+                                        <!-- delete project  -->
+                                        <a href="{% url 'project:delete-project' pk=project.id %}" class="deleteBtn">
+                                            Delete Project
+                                            <i class="fa-regular fa-trash-can"></i>
+                                        </a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="little-card content-center">
+                            <p class="add_file">Add your zip file</p>
+                            <a href="{% url 'upload:upload_zip' pk=project.id %}">
+                                <i class="fa-solid fa-plus"></i>
+                            </a>
+                        </div>
+
+                        <!-- if file already uploaded, show file-->
+                        {% if file %}
+                            <div class="uploaded-zip mt-5">
+                                <div class="upload-card content-center">
+                                    <p class="upload-header">Uploaded File</p>
+                                    <i class="fa-solid fa-folder" style="color: #ebc50a;font-size: 64px"></i>
+                                    <p class="upload-file-name">{{ file.name }}</p>
+                                </div>
+                            </div>
+
+                            <div class="row align-items-center buttons">
+                                <!-- colorspace choice page -->
+                                <div class="colorspace">
+                                    <a href="{% url 'project:color-space' pk=project.id %}" class="colorSpaceBtn">
+                                        Choice Color Space
+                                    </a>
+                                </div>
+
+                                <!-- zip file details page -->
+                                <div class="file-details">
+                                    <a href="{% url 'project:file_detail' pk=file.id %}" class="fileDetailBtn">
+                                        Show File Details
+                                    </a>
+                                </div>
+                            </div>
+
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

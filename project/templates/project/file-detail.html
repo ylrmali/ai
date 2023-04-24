@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'project/css/file-detail.css' %}">
+    <link rel="stylesheet" href="{% static 'project/css/control-data.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+         <!-- including sidebar -->
+        {% include 'project/partials/_sidebar.html' %}
+
+
+            <!-- file details -->
+        <div class="col-md-9">
+            <div class="row">
+                <a hx-get="{% url 'project:control_data' zip.id %}"
+                   hx-trigger="click"
+                   class="control-data">Control Data</a>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="2">{{ zip }} zip file</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for zip in zip_list  %}
+                        <tr>
+                            <td class="zip_name">
+                                <p>{{ zip }}</p>
+                            </td>
+{#                            <td class="zip_link">#}
+{#                                <a href="{% url 'project:file_image' pk=pk file_name=zip %}">#}
+{#                                    <i class="fa-regular fa-image"></i>#}
+{#                                </a>#}
+{#                            </td>#}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+{% endblock %}

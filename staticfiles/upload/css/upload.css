@@ -1,0 +1,84 @@
+.full-box{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.card{
+    border: 1px solid grey;
+    width: 50%;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    margin-top: 7%;
+}
+
+
+label{
+    margin: 0 25px;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+
+#id_zip_file_label{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 15px;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    cursor:pointer;
+    border: 1px dashed black;
+    border-radius: 10px;
+    position: relative;
+    padding: 30px;
+    margin-bottom: 20px;
+    background-color: white;
+    color: #4d4c4c;
+}
+
+#id_zip_file_label:hover .upload-image{
+    transform: rotateY(360deg);
+    transition: 1s ease-in-out;
+}
+
+#upload{
+    display: none;
+}
+
+#file_name{
+    width: 85%;
+    margin: 10px 25px;
+    height: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid grey;
+    color: #4d4c4c;
+}
+
+#file_name:focus{
+    outline: 0;
+}
+
+#file_name:hover{
+    background-color: #cbcbcb;
+}
+
+.upload-btn{
+    height: 40px;
+    background-color: transparent;
+    margin-left: 4%;
+    border: 2px solid dodgerblue;
+    border-radius: 15px;
+    width: 30%;
+    cursor: pointer;
+    color: #1c77d5;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.upload-btn:hover{
+    transition: 0.3s ease-in-out;
+    background-color: rgba(7, 87, 162, 0.2);
+}

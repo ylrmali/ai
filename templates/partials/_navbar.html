@@ -1,0 +1,43 @@
+<div class="container">
+    <nav>
+        <!-- brand  -->
+        <div class="brand">
+            <h1 class="brand-text">nrbtflow</h1>
+        </div>
+        <!-- pages/links -->
+        <div class="nav-menu">
+            <ul class="nav-menu-list">
+                <li class="nav-link">
+                    <a href="/" class="nav-item">projects</a>
+                </li>
+                <li class="nav-link">
+                    <a href="" class="nav-item">documentation</a>
+                </li>
+                <li class="nav-link">
+                    <a href="" class="nav-item">forum</a>
+                </li>
+            </ul>
+        </div>
+        <!-- user information -->
+        <div class="user-info">
+            {% if user.is_authenticated %}
+                <!-- if user login show below codes-->
+                <ul class="user-info-list align-items-center gap-3">
+                    <li class="username-link">
+                        <p class="username">{{ user.username }}</p>
+                    </li>
+                    <li class="logout-link">
+                        <a class="logout" href={% url 'account_logout' %}>
+                            logout
+                        </a>
+                    </li>
+                </ul>
+            {% else %}
+                <!-- if user not login show login link -->
+                <a class="login" href={% url 'account_login' %}>
+                    login
+                </a>
+            {% endif %}
+        </div>
+    </nav>
+</div>

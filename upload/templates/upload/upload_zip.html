@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'upload/css/upload.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+            {% include 'project/partials/_sidebar.html' %}
+        <div class="col-md-10">
+            <!-- upload form -->
+            <div class="container full-box">
+                <div class="card">
+                    <h1 class="content-center">Upload Your Zip File</h1>
+                    <form method="POST" enctype="multipart/form-data">
+                        <div class="box">
+                            {% csrf_token %}
+                            <label for="upload" id="id_zip_file_label">
+                                Upload or Drag Your File
+                                <img class="upload-image" src="{% static 'project/img/picture.png' %}" alt="">
+                            </label>
+                            <input type="file" id="upload" name="upload" accept="application/zip">
+                            <label for="file_name" >File Name</label>
+                            <input type="text" id="file_name" name="file_name">
+
+                            <button type="submit" class="upload-btn">Upload</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'upload/js/upload.js' %}"></script>
+{% endblock %}

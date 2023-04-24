@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'project/css/colorspace.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <!-- include sidebar-->
+        {% include 'project/partials/_sidebar.html' %}
+
+        <!-- color spaces -->
+        <div class="col-md-9">
+            <div class="box ">
+                <div class="row content-center mt-4 mb-4" >
+                    <div id="alert" >
+                        <!-- success or error alert will be here -->
+                    </div>
+                </div>
+                <div class="row content-center" id="image">
+                    <img class="image" src="{{ image.url }}" alt="">
+                </div>
+                <div class="row content-center">
+                    <!-- color space buttons and links -->
+                    <div class="grid">
+                        <!-- to original -->
+                        <button class="button blue" hx-get="{% url 'project:change_image' color_space='original' %}"
+                                                    hx-trigger="click" hx-target="#image" hx-swap="innerHTML">
+                        </button>
+                        <!-- to hsv -->
+                        <button class="button green" hx-get="{% url 'project:change_image' color_space='hsv' %}"
+                                                     hx-target="#image" hx-swap="innerHTML">
+
+                        </button>
+                        <!-- to rgb -->
+                        <button class="button red" hx-get="{% url 'project:change_image'  color_space='rgb' %}"
+                                                   hx-target="#image" hx-swap="innerHTML">
+
+                        </button>
+                        <!-- to gray -->
+                        <button class="button gray" hx-get="{% url 'project:change_image' color_space='gray' %}"
+                                                    hx-target="#image" hx-swap="innerHTML">
+
+                        </button>
+                        <!-- to original link -->
+                        <a class="link" hx-get="{% url 'project:change_image' color_space='original' %}"
+                                        hx-target="#image"
+                                        hx-swap="innerHTML">
+                                        ORIGINAL
+                        </a>
+                        <!-- to hsv link -->
+                        <a class="link" hx-get="{% url 'project:change_image' color_space='hsv' %}"
+                                        hx-target="#image"
+                                        hx-swap="innerHTML">
+                                        HSV
+                        </a>
+                        <!-- to rgb link -->
+                        <a class="link" hx-get="{% url 'project:change_image' color_space='rgb' %}"
+                                        hx-target="#image"
+                                        hx-swap="innerHTML">
+                                        RGB
+                        </a>
+                        <!-- to gray link -->
+                        <a class="link" hx-get="{% url 'project:change_image' color_space='gray' %}"
+                                        hx-target="#image"
+                                        hx-swap="innerHTML">
+                                        GRAY
+                        </a>
+                    </div>
+                </div>
+                <div class="row content-center mt-5">
+                    <a class="applyAllBtn mb-5" hx-get="{% url 'project:apply_all' pk=project.id %}"
+                                           hx-target="#alert"
+                                           hx-swap="innerHTML"
+                                           hx-trigger="click">
+                                           Apply Effect All Of Them
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'project/js/colorspace.js' %}"></script>
+{% endblock %}

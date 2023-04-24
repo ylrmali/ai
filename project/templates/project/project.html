@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- including stylesheets -->
+{% block style %}
+    <link rel="stylesheet" href="{% static 'project/css/project.css' %}">
+    <link rel="stylesheet" href="{% static 'project/css/navbar.css' %}">
+{% endblock %}
+
+<!-- including base codes -->
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+
+            <!-- include sidebar -->
+            {% include 'project/partials/_sidebar.html' %}
+
+            <!-- projects -->
+            <div class="col-md-10">
+                <div class="main-bar">
+                    <!-- create new project -->
+                    <div class="create-project">
+                        <button id="popupBtn" type="button"  hx-get="{% url 'project:create-project' %}" hx-trigger="click" hx-target="#modal"
+                         hx-swap="innerHTML">
+                            Create New Project
+                        </button>
+                    </div>
+                    <!-- list projects -->
+                    <div class="row side-padding wrap gap-1">
+                        <!-- project -->
+                        {% if projects %}
+                            {% for project in projects %}
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <a class="row gap-2 align-items-center"
+                                       href={% url 'project:project-detail' pk=project.id  %}>
+                                        <img class="project-image" src="{{ project.project_image.url }}" alt="">
+                                        <div class="project-info">
+                                            <div class="row align-items-center gap-05 ">
+                                                <i class="fa-solid fa-globe"></i>
+                                                <p class="project-name ">{{ project.project_name }}</p>
+                                            </div>
+                                            <p class="project-model">{{ project.project_model }}</p>
+                                            <p class="project-date">{{ project.created_time }}</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        {% else %}
+                            <h1 class="message">henüz gösterilecek bir proje yok!</h1>
+                            <img class="no-data" src="{% static 'project/img/no-data.png' %}" alt="">
+                        {% endif %} 
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- end projects -->
+        </div>
+    </div>
+
+    <div class="backdrop" id="backdrop">
+        <div class="modal" id="modal">
+            <!-- project create form will be here -->
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'project/js/dialog.js' %}"></script>
+{% endblock %}

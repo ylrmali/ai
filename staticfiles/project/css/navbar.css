@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&display=swap');
+/* font-family: 'Chakra Petch', sans-serif; */
+
+body{
+    padding: 0;
+    margin: 0;
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+
+nav{
+    display: flex;
+    padding: 5px;
+    align-items: center;
+    background-color: #03171F;
+}
+
+.brand{
+    margin-left: 10%;
+    margin-right: 3%;
+}
+
+.brand-text{
+    font-size: 25px;
+    color: whitesmoke;
+}
+
+.nav-menu-list{
+    display: flex;
+    gap: 50px;
+    list-style: none;
+}
+
+.nav-item{
+    text-decoration: none;
+    text-transform: capitalize;
+    color: #e3e3e3;
+    font-size: 17px;
+}
+
+.user-info{
+    width: 100%;
+}
+
+.user-info-list{
+    display: flex;
+    float: right;
+    margin-right: 5%;
+}
+
+.login{
+    float: right;
+    margin-right: 5%;
+    text-decoration: none;
+    color: dodgerblue;
+    font-size: 20px;
+    border: 1px solid dodgerblue;
+    padding: 5px 25px;
+    border-radius: 3px;
+}
+
+.login:hover{
+    transition: 0.5s ease-in-out;
+    background-color: rgba(30, 144, 255, 0.15);
+}
+
+/* logout */
+.user-info-list{
+    list-style: none;
+}
+
+.username{
+    color: #bdbdbd;
+}
+
+.logout{
+    text-decoration: none;
+    color: #c70606;
+    border: 1px solid #c70606;
+    padding: 5px 25px;
+    font-size: 20px;
+    border-radius: 3px;
+}

@@ -1,0 +1,88 @@
+.image{
+    width: 50%;
+}
+
+
+.grid{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    column-gap: 60px;
+    row-gap: 10px;
+}
+
+.grid a{
+    text-decoration: none;
+    font-weight: bold;
+    color: #03171F;
+    cursor: pointer;
+}
+
+.button{
+    height: 64px;
+    width: 64px;
+    max-height: 64px;
+    max-width: 64px;
+    margin-top: 20%;
+    border-radius: 15px;
+    border: 0;
+    cursor: pointer;
+}
+
+.blue{
+    background-color: rgba(46, 135, 224, 0.9);
+}
+
+.green{
+    background-color: rgba(63, 185, 63, 0.9);
+}
+
+.red{
+    background-color: rgba(206, 35, 35, 0.9);
+}
+
+.gray{
+    background-color: rgba(77, 76, 76, 0.9);
+}
+
+
+.applyAllBtn{
+    text-decoration: none;
+    color: #545454;
+    border: 1px solid dodgerblue;
+    border-radius: 5px;
+    background-color: rgba(30, 144, 255, 0.2);
+    padding: 10px 20px;
+    font-family: 'Noto Sans', sans-serif;
+    cursor: pointer;
+}
+
+.applyAllBtn:hover{
+    transition: 0.3s ease-in-out;
+    background-color: rgba(30, 144, 255, 0.35);
+    color: #03171F;
+}
+
+.alert{
+    background-color: rgba(0, 128, 0, 0.2);
+    border: 1px solid green;
+    border-radius: 5px;
+    height: 40px;
+    width: 40%;
+    max-height: 40px;
+    padding: 10px;
+    position: absolute;
+    top: 15%;
+    left: 33%;
+    display: flex;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    font-weight: bold;
+    color: black;
+    justify-content: space-between;
+}
+
+
+.fa-xmark{
+    color: black;
+    cursor: pointer;
+}
